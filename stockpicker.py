@@ -5,6 +5,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from ta.momentum import RSIIndicator
 from ta.trend import MACD
+import os
+
 
 st.title('Check your Stock Picks!') 
 st.sidebar.info('Check your Stock Picks! This app uses data from Yahoo Finance to display stock prices and buy/sell signals based on published technical analysis methods. *This is NOT investment advice!!!* Only invest what you can afford to lose. As we know... the market is crazy and prices are not predictable.')
