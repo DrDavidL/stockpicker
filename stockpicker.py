@@ -79,7 +79,7 @@ for ticker_symbol in ticker_symbols.split(','):
 
     # Create a Matplotlib figure
     fig, ax = plt.subplots()
-    ax.plot(plot_df.index, plot_df['Close'], label='Close')
+    ax.plot(plot_df.index, plot_df['Close'], label='Close', color='cyan')
     # Plot moving averages if selected by user
     if show_50_ma:
         ma_50 = ticker_df.Close.rolling(50).mean()
