@@ -18,9 +18,11 @@ start_date = st.sidebar.date_input("Start date - default is 2 years ago:", pd.to
 
 end_date = st.sidebar.date_input("End date - default is today:", pd.to_datetime('today'))
 
-st.info("""Green dots are buy signals; red dots are sell signals using typical statistical methods
-        (e.g. moving average crossover, RSI). Of course, this is not financial advice! Prices are not predictable and the market 
-        is not rational. Only invest what you can afford to lose.""")
+st.info("""Enter stock symbols in the :arrow_left: sidebar for this page, to the left. 
+        
+Green dots are buy signals; red dots are sell signals using typical statistical methods
+(e.g. moving average crossover, RSI). Of course, this is not financial advice! Prices are not predictable and the market 
+is not rational. Only invest what you can afford to lose.""")
 signal_type = st.sidebar.radio("Select your buy/sell signal type:", ['Moving Average Crossover', 'Relative Strength Index (RSI)', 'Moving Average Convergence Divergence (MACD)'])
 
 # User input for moving averages
