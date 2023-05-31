@@ -53,7 +53,9 @@ def buy_or_not_rsi_sma(rsi, sma, symbol, data, length):
 
 
 
-st.title('Stock Technical Analysis App')
+st.title('Stock Technical Testing')
+
+st.info('This app is for peforming a quick technical analysis screen for your symbols. Use the other page for plots!')
 
 user_input = st.text_input("Enter one or more stock symbols (separated by comma or space):", 'AAPL')
 
@@ -63,6 +65,7 @@ analysis_method = st.radio("Select the technical analysis method:", ("MACD", "RS
 
 if analysis_method == "RSI":
     rsi_buy_level = st.slider("RSI buy level typically < 30", min_value=0, max_value=100, value=25, step=1)
+    rsi_sell_level = st.slider("RSI sell level typically > 70", min_value=0, max_value=100, value=80, step=1)
 
 st.header('Technical Analysis Results')
 
@@ -139,7 +142,7 @@ for symbol in symbols:
         signal_1mo = buy_or_not_rsi(symbol, data, 10, rsi_buy_level)
         if signal_1mo["Signal"] == "BUY":
             buys_1mo.append(signal_1mo)
-        elif signal_1mo["Signal"] == "DON'T BUY" and rsi_1mo[-1] > 80:  # Sell condition
+        elif signal_1mo["Signal"] == "DON'T BUY" and rsi_1mo[-1] > rsi_sell_level:  # Sell condition
             sells_1mo.append(signal_1mo)
 
         signal_3mo = buy_or_not_rsi(symbol, data, 14, rsi_buy_level)
